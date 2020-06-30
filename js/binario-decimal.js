@@ -15,7 +15,7 @@
 
     function bin2dec(){
     // jQuery para validar se o texto é de números ou outros caracteres
-        
+
         var ind = 12 ;
         for(var i=0; i<listaBin.length; i++){
             ind = ind + 10;
@@ -23,6 +23,18 @@
     
         let bin = document.getElementById("bin").value;
         let dec = parseInt(bin, 2).toString(10);
+        //alert(typeof(bin));
+        var testeDec;
+        for(var i = 0; i<bin.length; i ++){
+            //alert(bin.substr(i,1));
+            testeDec = bin.substr(i,1);
+            //alert(typeof(testeDec));
+            if(testeDec != "0" && testeDec != "1" ){
+                alert("caractere diferente de 1 ou 0 identificado, resultado pode ser prejudicado");
+                break;
+            }
+        }
+        
         //var tamTop = marginTop(listaBin.length);
         //alert(tamTop);
         listaBin.push(bin);
@@ -55,6 +67,7 @@
             document.getElementById("decimal").innerHTML = listaDec[i]; 
             document.getElementById("prin").insertAdjacentHTML("afterend", "<div id='binario' style='color: white; position: relative; right: 66%; margin-top: 15%;'></div>");
             document.getElementById("binario").innerHTML = listaBin[i];*/
+        
         
     }
    //console.log(typeof(parseInt(101, 2).toString(10))); 
